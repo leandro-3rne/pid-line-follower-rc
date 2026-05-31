@@ -1,6 +1,6 @@
 # Mecanum Line Follower Robot
 
-This project is a small autonomous line-following robot built with an **Arduino Uno**, a **5-channel infrared sensor array**, four DC geared motors, and Mecanum wheels. The current version follows a black line using sensor-based steering control, while a future upgrade will turn it into a fully wireless Mecanum platform with independent wheel control.
+This project is a small autonomous line-following robot built with an Arduino Uno, a 5-channel infrared sensor array, four DC geared motors, and Mecanum wheels. The current version follows a black line using sensor-based steering control, while a future upgrade will turn it into a fully wireless Mecanum platform with independent wheel control.
 
  <p align="center">
   <img src="media/v1_topview.png" width="46%" alt="V1 Top View">
