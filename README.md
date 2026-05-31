@@ -127,7 +127,7 @@ A practical difficulty is mounting the IR sensor array at the correct height. Th
 ## 🧠 PID Steering Controller
 
 <p align="center">
-  <img src="media/PID.png" width="700">
+  <img src="media/PID.jpeg" width="700">
 </p>
 
 <p align="center">
