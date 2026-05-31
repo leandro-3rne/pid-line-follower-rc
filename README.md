@@ -2,7 +2,10 @@
 
 This project is a small autonomous line-following robot built with an **Arduino Uno**, a **5-channel infrared sensor array**, four DC geared motors, and Mecanum wheels. The current version follows a black line using sensor-based steering control, while a future upgrade will turn it into a fully wireless Mecanum platform with independent wheel control.
 
-   
+ <p align="center">
+  <img src="media/v1_topview.png" width="46%" alt="V1 Top View">
+  <img src="media/v1_sideview.png" width="46%" alt="V1 Side View">
+</p>
 
 ---
 
@@ -19,6 +22,12 @@ This project is developed in two stages:
 ---
 
 ## 🎥 V1 Demonstration
+
+<p align="center">
+  <a href="media/line_following_v1.mp4">
+    <img src="media/v1_topview.png" width="700" alt="Click to watch demo">
+  </a>
+</p>
 
 ---
 
@@ -50,12 +59,6 @@ This project is developed in two stages:
 | 4× Mecanum Wheels         | Wheel platform               |
 | 4× AA NiMH Batteries      | Motor supply                 |
 | USB Powerbank             | Arduino supply               |
-
-The V1 code is located in:
-
-```text
-scripts/v1/
-```
 
 ---
 
@@ -104,19 +107,19 @@ In V1, the left motor pair and right motor pair are each driven together by one 
 The robot follows a **black line on a bright floor**. During testing, the uncovered floor produced sensor values of approximately:
 
 $$
-r_\text{floor} \approx 900
+r_{floor} \approx 900
 $$
 
 Since the black line reflects less infrared light, it produces a lower reading. The strength of the detected line for each sensor is calculated as:
 
 $$
-s_i = \max(0, r_{\text{floor},i} - r_i)
+s_i = \max(0, r_{floor_i} - r_i)
 $$
 
 where:
 
 * $r_i$ is the raw reading of sensor $i$,
-* $r_{\text{floor},i}$ is the calibrated bright-floor reading,
+* $r_{floor_i}$ is the calibrated bright-floor reading,
 * $s_i$ is the detected black-line intensity.
 
 A practical difficulty is mounting the IR sensor array at the correct height. The readings depend strongly on surface contrast, ambient light, and distance from the floor. For the current prototype, a height of roughly **5–8 mm** above the surface provides a strong contrast between the floor and the black line.
@@ -124,6 +127,14 @@ A practical difficulty is mounting the IR sensor array at the correct height. Th
 ---
 
 ## 🧠 PID Steering Controller
+
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/PID_en.svg/960px-PID_en.svg.png" width="700">
+</p>
+
+<p align="center">
+  <em>Classical PID control loop.</em>
+</p>
 
 ### Estimating the Line Position
 
@@ -166,7 +177,7 @@ $$
 u(t) =
 K_P e(t)
 +
-K_I \int_0^t e(\tau),d\tau
+K_I \int_0^t e(\tau) d\tau
 +
 K_D \frac{de(t)}{dt}
 $$
@@ -212,9 +223,9 @@ The controller is tuned incrementally:
 
 1. Set the integral and derivative terms to zero:
 
-   $$
-   K_I = 0, \qquad K_D = 0
-   $$
+$$
+K_I = 0 \qquad K_D = 0
+$$
 
 2. Increase $K_P$ until the robot follows the line reliably but begins to oscillate around it.
 
@@ -232,9 +243,9 @@ A classical systematic tuning approach is the **Ziegler–Nichols closed-loop me
 
 1. Set:
 
-   $$
-   K_I = 0, \qquad K_D = 0
-   $$
+$$
+K_I = 0, \qquad K_D = 0
+$$
 
 2. Increase $K_P$ until the robot begins to oscillate continuously.
 
@@ -276,5 +287,5 @@ V2 will upgrade the robot into a fully controllable Mecanum platform using:
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License.
 
