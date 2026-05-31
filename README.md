@@ -131,7 +131,7 @@ A practical difficulty is mounting the IR sensor array at the correct height. Th
 </p>
 
 <p align="center">
-  <em>Classical PID control loop.</em>
+  <em>Classic PID control loop</em>
 </p>
 
 ### Estimating the Line Position
