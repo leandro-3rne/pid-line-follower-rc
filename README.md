@@ -24,9 +24,7 @@ This project is developed in two stages:
 ## 🎥 V1 Demonstration
 
 <p align="center">
-  <a href="media/line_following_v1.mp4">
-    <img src="media/v1_topview.png" width="700" alt="Click to watch demo">
-  </a>
+  <img src="media/line_following_v1.gif" width="700">
 </p>
 
 ---
@@ -129,7 +127,7 @@ A practical difficulty is mounting the IR sensor array at the correct height. Th
 ## 🧠 PID Steering Controller
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/PID_en.svg/960px-PID_en.svg.png" width="700">
+  <img src="media/PID.png" width="700">
 </p>
 
 <p align="center">
